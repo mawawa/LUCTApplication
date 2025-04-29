@@ -1,4 +1,4 @@
-package com.luct.LUCTApplication;
+package com.luct.LUCTApplication.models;
 
 import jakarta.persistence.*;
 
@@ -12,12 +12,12 @@ public class Payment {
     private String paymentData;
 
     @OneToOne
-    private Payment payment;
+    private ApplicationForm applicationForm;
 
-    public Payment(Long paymentId, String paymentData, Payment payment) {
+    public Payment(Long paymentId, String paymentData, ApplicationForm applicationForm) {
         this.paymentId = paymentId;
         this.paymentData = paymentData;
-        this.payment = payment;
+        this.applicationForm = applicationForm;
     }
 
     public Payment() {
@@ -39,12 +39,12 @@ public class Payment {
         this.paymentData = paymentData;
     }
 
-    public Payment getPayment() {
-        return payment;
+    public ApplicationForm getApplicationForm() {
+        return applicationForm;
     }
 
-    public void setPayment(Payment payment) {
-        this.payment = payment;
+    public void setApplicationForm(ApplicationForm applicationForm) {
+        this.applicationForm = applicationForm;
     }
 }
 

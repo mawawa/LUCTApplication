@@ -1,4 +1,4 @@
-package com.luct.LUCTApplication;
+package com.luct.LUCTApplication.models;
 
 import jakarta.persistence.*;
 
@@ -35,6 +35,8 @@ public class ApplicationForm {
     String disabilityDetails;
     private boolean declaration;
 
+    @ManyToOne
+    private LUCTUser potentialStudent;
 
     public ApplicationForm(Long formId, String fullName, String idPassportNum, String dateOfBirth, String placeOfBirth, String gender, String nationality, String currentHomeAddress, String permanentHomeAddress, String emailAddress, String phoneNumber, String guardianFullName, String relationShip, String occupation, String guardianPhoneNumber, String programName, String startDate, String highestQualification, String institutionName, List<HighSchoolSubject> subjectList, boolean disability, String disabilityDetails, boolean declaration) {
         this.formId = formId;

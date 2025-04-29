@@ -1,4 +1,4 @@
-package com.luct.LUCTApplication;
+package com.luct.LUCTApplication.models;
 
 import jakarta.persistence.*;
 

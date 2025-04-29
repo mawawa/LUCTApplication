@@ -1,4 +1,4 @@
-package com.luct.LUCTApplication;
+package com.luct.LUCTApplication.models;
 
 import jakarta.persistence.*;
 
@@ -15,7 +15,7 @@ public class LUCTUser {
     private String role;
     private String fullName;
 
-    public LUCTUser(String userId, String emailAddress, String password, String confirmPassword, String role, String fullName) {
+    public LUCTUser(Long userId, String emailAddress, String password, String confirmPassword, String role, String fullName) {
         this.userId = userId;
         this.emailAddress = emailAddress;
         this.password = password;
@@ -35,11 +35,11 @@ public class LUCTUser {
     public LUCTUser() {
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
