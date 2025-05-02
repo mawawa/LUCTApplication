@@ -35,10 +35,17 @@ public class ApplicationForm {
     String disabilityDetails;
     private boolean declaration;
 
+    //variable for processing of form
+    private String status;
+
     @ManyToOne
     private LUCTUser potentialStudent;
 
-    public ApplicationForm(Long formId, String fullName, String idPassportNum, String dateOfBirth, String placeOfBirth, String gender, String nationality, String currentHomeAddress, String permanentHomeAddress, String emailAddress, String phoneNumber, String guardianFullName, String relationShip, String occupation, String guardianPhoneNumber, String programName, String startDate, String highestQualification, String institutionName, List<HighSchoolSubject> subjectList, boolean disability, String disabilityDetails, boolean declaration) {
+    public ApplicationForm() {
+    }
+
+
+    public ApplicationForm(Long formId, String fullName, String idPassportNum, String dateOfBirth, String placeOfBirth, String gender, String nationality, String currentHomeAddress, String permanentHomeAddress, String emailAddress, String phoneNumber, String guardianFullName, String relationShip, String occupation, String guardianPhoneNumber, String programName, String startDate, String highestQualification, String institutionName, List<HighSchoolSubject> subjectList, boolean disability, String disabilityDetails, boolean declaration, String status, LUCTUser potentialStudent) {
         this.formId = formId;
         FullName = fullName;
         IdPassportNum = idPassportNum;
@@ -62,9 +69,25 @@ public class ApplicationForm {
         this.disability = disability;
         this.disabilityDetails = disabilityDetails;
         this.declaration = declaration;
+        this.status = status;
+        this.potentialStudent = potentialStudent;
     }
 
-    public ApplicationForm() {
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public LUCTUser getPotentialStudent() {
+        return potentialStudent;
+    }
+
+    public void setPotentialStudent(LUCTUser potentialStudent) {
+        this.potentialStudent = potentialStudent;
     }
 
     public Long getFormId() {
