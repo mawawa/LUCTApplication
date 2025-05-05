@@ -35,8 +35,12 @@ public class ApplicationForm {
     String disabilityDetails;
     private boolean declaration;
 
-    //variable for processing of form
+    // for processing of form
     private String status;
+    private int score;
+    private int credits;
+    private boolean qualify;
+
 
     @ManyToOne
     private LUCTUser potentialStudent;
@@ -45,7 +49,28 @@ public class ApplicationForm {
     }
 
 
-    public ApplicationForm(Long formId, String fullName, String idPassportNum, String dateOfBirth, String placeOfBirth, String gender, String nationality, String currentHomeAddress, String permanentHomeAddress, String emailAddress, String phoneNumber, String guardianFullName, String relationShip, String occupation, String guardianPhoneNumber, String programName, String startDate, String highestQualification, String institutionName, List<HighSchoolSubject> subjectList, boolean disability, String disabilityDetails, boolean declaration, String status, LUCTUser potentialStudent) {
+    public int getCredits() {
+        return credits;
+    }
+
+    public void setCredits(int credits) {
+        this.credits = credits;
+    }
+
+    public boolean isQualify() {
+        return qualify;
+    }
+
+    public void setQualify(boolean qualify) {
+        if(qualify){
+            this.status = "Qualified";
+        }else{
+            this.status="Declined";
+        }
+        this.qualify = qualify;
+    }
+
+    public ApplicationForm(Long formId, String fullName, String idPassportNum, String dateOfBirth, String placeOfBirth, String gender, String nationality, String currentHomeAddress, String permanentHomeAddress, String emailAddress, String phoneNumber, String guardianFullName, String relationShip, String occupation, String guardianPhoneNumber, String programName, String startDate, String highestQualification, String institutionName, List<HighSchoolSubject> subjectList, boolean disability, String disabilityDetails, boolean declaration, String status, int score, int credits, boolean qualify, LUCTUser potentialStudent) {
         this.formId = formId;
         FullName = fullName;
         IdPassportNum = idPassportNum;
@@ -70,9 +95,49 @@ public class ApplicationForm {
         this.disabilityDetails = disabilityDetails;
         this.declaration = declaration;
         this.status = status;
+        this.score = score;
+        this.credits = credits;
+        this.qualify = qualify;
         this.potentialStudent = potentialStudent;
     }
 
+    public ApplicationForm(Long formId, String fullName, String idPassportNum, String dateOfBirth, String placeOfBirth, String gender, String nationality, String currentHomeAddress, String permanentHomeAddress, String emailAddress, String phoneNumber, String guardianFullName, String relationShip, String occupation, String guardianPhoneNumber, String programName, String startDate, String highestQualification, String institutionName, List<HighSchoolSubject> subjectList, boolean disability, String disabilityDetails, boolean declaration, String status, int score, int credits, LUCTUser potentialStudent) {
+        this.formId = formId;
+        FullName = fullName;
+        IdPassportNum = idPassportNum;
+        this.dateOfBirth = dateOfBirth;
+        this.placeOfBirth = placeOfBirth;
+        this.gender = gender;
+        this.nationality = nationality;
+        this.currentHomeAddress = currentHomeAddress;
+        this.permanentHomeAddress = permanentHomeAddress;
+        this.emailAddress = emailAddress;
+        this.phoneNumber = phoneNumber;
+        this.guardianFullName = guardianFullName;
+        this.relationShip = relationShip;
+        this.occupation = occupation;
+        this.guardianPhoneNumber = guardianPhoneNumber;
+        this.programName = programName;
+        this.startDate = startDate;
+        this.highestQualification = highestQualification;
+        this.institutionName = institutionName;
+        this.subjectList = subjectList;
+        this.disability = disability;
+        this.disabilityDetails = disabilityDetails;
+        this.declaration = declaration;
+        this.status = status;
+        this.score = score;
+        this.credits = credits;
+        this.potentialStudent = potentialStudent;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 
     public String getStatus() {
         return status;
